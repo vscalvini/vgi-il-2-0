@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:p5="http://xmldefs.volkswagenag.com/DD/BasicTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmldefs.volkswagenag.com/DD/Vehicle" targetNamespace="http://xmldefs.volkswagenag.com/DD/Vehicle">
+  <xsd:import namespace="http://xmldefs.volkswagenag.com/DD/BasicTypes" schemaLocation="Schema1.xsd"/>
+  <xsd:complexType name="CommissionIdentifierType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">Commission Identifier</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="CommissionYear" type="p5:YearType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[Commission Year as four digits only. This element should only be used if the exact date can not be delivered. If the element Date is supplied this element has to be omitted.]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CommissionNumber" type="p5:IdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Commissions number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

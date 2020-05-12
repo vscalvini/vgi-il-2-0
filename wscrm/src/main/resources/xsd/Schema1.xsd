@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://xmldefs.volkswagenag.com/DD/BasicTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmldefs.volkswagenag.com/DD/BasicTypes">
+  <xsd:simpleType name="IndicatorType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">A list of two mutually exclusive Boolean values that express the only possible states of a property.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="String">
+    <xsd:restriction base="xsd:normalizedString"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="DateTimeType">
+    <xsd:restriction base="xsd:dateTime"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="YearType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">One calendar year according the Gregorian calendar (ISO 8601). Format: CCYY.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:gYear"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="LanguageTagCodeType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN"><![CDATA[Multipart string identifier for a language acording to IETF RFC4646 (e.g. de, de-DE, de-Latn-DE, de-Latn-DE-1996). The Format of the tag is: langtag = (language["-" script]["-" region]*("-" variant)*("-"extension)["-" privateuse])]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="DateType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">One calendar day according the Gregorian calendar (ISO 8601). Format: [-]CCYY-MM-DD[Z|(+|-)hh:mm]</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <xsd:complexType name="CountryCodeType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">character string identifies a country (e.g. DEU, USA). The code list is identified by a 'listID' attribute.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="String">
+        <xsd:attribute name="listID" type="String"/>
+        <xsd:attribute name="listVersionID" type="String"/>
+        <xsd:attribute name="name" type="String"/>
+        <xsd:attribute name="languageID" type="LanguageTagCodeType"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="IdentifierType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN"><![CDATA[A character string to identify and distinguish uniquely, one instance of an object in an identification scheme from all other objects in the same scheme together with relevant supplementary information.]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="String">
+        <xsd:attribute name="schemeID" type="String">
+          <xsd:annotation>
+            <xsd:documentation>The identification of the identification scheme (i.e. VIN)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="schemeVersionID" type="String">
+          <xsd:annotation>
+            <xsd:documentation>The version of the identification scheme</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="CodeType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN"><![CDATA[A character string (letters, figures, or symbols) that represents an element from a list of codes that is maintained by an external (e.g. ISO) or internal party (e.g. Integration Architecture).]]></xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="String">
+        <xsd:attribute name="listID" type="String"/>
+        <xsd:attribute name="listVersionID" type="String"/>
+        <xsd:attribute name="name" type="String"/>
+        <xsd:attribute name="languageID" type="LanguageTagCodeType"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+</xsd:schema>

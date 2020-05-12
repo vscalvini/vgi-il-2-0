@@ -1,0 +1,16 @@
+server:
+  port: 8088
+
+spring:
+  cloud:
+    stream:
+      default:
+        producer:
+          headerMode: raw
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        greetings-out:
+          destination: topic-test
+          contentType: application/json

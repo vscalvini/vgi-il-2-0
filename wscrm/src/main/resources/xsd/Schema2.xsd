@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:p7="http://xmldefs.volkswagenag.com/DD/BasicTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmldefs.volkswagenag.com/DD/BusinessPartner" targetNamespace="http://xmldefs.volkswagenag.com/DD/BusinessPartner">
+  <xsd:import namespace="http://xmldefs.volkswagenag.com/DD/BasicTypes" schemaLocation="Schema1.xsd"/>
+  <xsd:complexType name="MarketingAllowancesType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">Allowances and blockades for marketing material</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="MarketingAllowance" type="MarketingAllowanceType" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Customer agreed to be contacted for marketing purposes</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MarketingAllowanceType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">Customer agreed to be contacted for marketing purposes</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="BrandCode" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Brands inside Volkswagen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="GeneralMarketingAllowanceIND" type="p7:IndicatorType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>General marketing allowance for the named brand.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LastChangeDate" type="p7:DateType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Last change date of the Allowance.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LastChangeBy" type="LastChangeByType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>This information is required from law to know who did the last chnage on the
+          gerneral marketing allowance.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="InboundChannel" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Inbound channel where the marketing allowance comes from.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MarketingBlockades" type="MarketingBlockadesType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>List of Marketing blockades.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SalesPersonIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="EmployeeNumber" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Employee number of the sales person in the AffiliatedDealers's
+          company.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SalesPersonNumber" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of the sales person indepedent of the dealer he is working for.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WholesalerIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="ImporterId" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[The element identifies a wholesaler. The element is stored in the Group Importer System KVPS as BID. The ImporterId is the group wide defined Id for the importer.]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessIdentifiersType">
+    <xsd:sequence>
+      <xsd:element name="BusinessIdentifier" type="BusinessIdentifierType" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Fachlicher Identifizierer wie Sozialversicherungsnummer, Führerscheinkennung,
+          Presseausweisnummer.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MarketingBlockadeType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">Marketing blockade</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="BlockType" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Block for a certain channel like SMS.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BlockedIND" type="p7:IndicatorType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[Indicates if the BlockType like SMS is blocked, the market law has to decide if nothing is specified for SMS if it is allowed or forbidden to contact the person over SMS. This element is required to identify if someone takes back his permission.]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LastChangeDate" type="p7:DateType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Last change date of marketing blockade.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LastChangeBy" type="LastChangeByType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>This information is required by law. It shows which system user did the last chnage
+          on this specific MarketingBlockade</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="InboundChannel" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Inbound channel where the marketing blockade comes from.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DealerRef" type="PartnerIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[If 'DealerRef' is supplied this means that the block is valid for the referenced
+          dealer. If 'BlockType' contains dealer and 'DealerRef' is not supplied that means a general dealer marketing
+          block.]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PartnerIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="PartnerUID" type="p7:IdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Business Partner Key. Unique identification of business partner.
+          GUID</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ApplicationIdentifiers" type="ApplicationIdentifiersType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Applikation specific Business Partner Key. EUnique identification of business
+          partner in applications.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BusinessIdentifiers" type="BusinessIdentifiersType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[List of BusinessIdentifier which identify a BusinessPartner not in a technical way but with information from the outside (like his passport or his journalism pass).]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DealerIdentifier" type="DealerIdentifierType" minOccurs="0"/>
+      <xsd:element name="CustomerIdentifier" type="CustomerIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier that is used exclusively for customer.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SalesPersonIdentifier" type="SalesPersonIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identifier that is used exclusively for sales persons</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WholesalerIdentifier" type="WholesalerIdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>A wholesaler is sombody who sells the vehicles for volkswagen.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PartnerKeyType">
+    <xsd:sequence>
+      <xsd:element name="Country" type="p7:CountryCodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The country the dealer works in.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Brand" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Brands inside Volkswagen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PartnerNumber" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[The Partner number is a 5-digit number (e.g. 74623) given by the importer and only
+          valid in the context of a brand and country. The PartnerNumber is stored in the Group DealerPartner System KVPS as
+          Partner Nummer]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DealerIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="PartnerKey" type="PartnerKeyType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Only the combination of Country, Brand and PartnerNumber identifies a Dealer
+          uniquely.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationIdentifiersType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">List of application specific identifiers.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ID" type="p7:IdentifierType" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation><![CDATA[Application specific identifier. The identifier which is used to identify the object within an application or by an external party. The 'schemaID' attribute states the application or external partner who issued the identifier.]]></xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="CustomerNumber" type="p7:IdentifierType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Customer number. The schemaID Attrbute states the system where the customer Number is issued (e.g.
+          DIANA, NEVADA, EVA, ISA ...I )</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MarketingBlockadesType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="EN">Marketing blockades. List of.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="MarketingBlockade" type="MarketingBlockadeType" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Marketing blockade.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LastChangeByType">
+    <xsd:sequence>
+      <xsd:element name="System" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The system the user name is assigned to.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="User" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Username who did the last change.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessIdentifierType">
+    <xsd:sequence>
+      <xsd:element name="IdentifierType" type="p7:CodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. Journalist Pass)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Identifier" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Number of pass (e.g. Journalist Pass Number).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EntryDate" type="p7:DateType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>When was it issued.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Authority" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Name of issueing authority (e.g. Registration Office).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Country" type="p7:CountryCodeType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. DEU for Germany)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Region" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. Brandenburg)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="City" type="p7:String" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. Potsdam)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValidFrom" type="p7:DateType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. 2008-01-02)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValidTo" type="p7:DateType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>(e.g. 2009-01-02)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

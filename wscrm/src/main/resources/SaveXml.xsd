@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://il.vwgroup.it/wscrm" xmlns:tns="http://il.vwgroup.it/wscrm" elementFormDefault="qualified">
+
+      <element name="SaveXmlRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="1" name="xmlData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveXmlResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="1" name="SaveXmlResult" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AuthHeader" type="tns:AuthHeader" />
+      <complexType name="AuthHeader">
+        <sequence>
+          <element minOccurs="0" maxOccurs="1" name="Username" type="string" />
+          <element minOccurs="0" maxOccurs="1" name="Password" type="string" />
+        </sequence>
+        <anyAttribute />
+      </complexType>
+      <element name="Ping">
+        <complexType />
+      </element>
+      <element name="PingResponse">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="1" name="PingResult" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+
+</schema>

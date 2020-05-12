@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      database: vgi_il
+      port: 0
