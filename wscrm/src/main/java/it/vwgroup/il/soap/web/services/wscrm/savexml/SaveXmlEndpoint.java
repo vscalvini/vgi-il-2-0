@@ -45,17 +45,12 @@ public class SaveXmlEndpoint {
 
 	        JSONObject xmlJSONObj = XML.toJSONObject(request.getXmlData());
             String jsonPrettyPrintString = xmlJSONObj.toString(4);
-//            System.out.println(jsonPrettyPrintString);
 
             RestTemplate restTemplate = new RestTemplate();
-            String resourceUrl = "http://localhost:8088/sendKafka";//?message=" + jsonPrettyPrintString;
-
-//            Boolean foo = restTemplate.getForObject(resourceUrl, Boolean.class);
+            String resourceUrl = "http://192.168.1.102:8899/sendKafka";//?message=" + jsonPrettyPrintString;
 
             HttpEntity<String> httpRequest = new HttpEntity<>(jsonPrettyPrintString);
             Boolean foo = restTemplate.postForObject(resourceUrl, httpRequest, Boolean.class);
-
-            System.out.println("Foo: " + foo);
 
             response.setSaveXmlResult(jsonPrettyPrintString);
 	    } catch (SAXException | IOException e) {
@@ -68,8 +63,6 @@ public class SaveXmlEndpoint {
 			e.printStackTrace();
 			response.setSaveXmlResult("KO: " + e.getMessage());
 		}
-
-//	    response.setSaveXmlResult("OK");
 
 	    return response;
 	  }
