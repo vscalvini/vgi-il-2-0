@@ -11,6 +11,6 @@ spring:
         binder:
           brokers: localhost:9092
       bindings:
-        greetings-out:
-          destination: topic-test
+        leads-out:
+          destination: topic-lead
           contentType: application/json

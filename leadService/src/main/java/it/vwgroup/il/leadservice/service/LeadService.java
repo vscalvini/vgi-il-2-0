@@ -17,7 +17,7 @@ public class LeadService {
     }
 
     public void sendLead(final String json) {
-        MessageChannel messageChannel = leadStreams.outboundGreetings();
+        MessageChannel messageChannel = leadStreams.outboundLeads();
         messageChannel.send(MessageBuilder
                 .withPayload(json)
                 .setHeader(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON)
