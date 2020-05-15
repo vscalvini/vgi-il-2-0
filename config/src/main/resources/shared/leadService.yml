@@ -1,6 +1,3 @@
-server:
-  port: 8088
-
 spring:
   cloud:
     stream:
@@ -9,7 +6,7 @@ spring:
           headerMode: raw
       kafka:
         binder:
-          brokers: localhost:9092
+          brokers: kafka:9092
       bindings:
         leads-out:
           destination: topic-lead
