@@ -11,3 +11,12 @@ spring:
         leads-out:
           destination: topic-lead
           contentType: application/json
+
+security:
+  oauth2:
+    client:
+      clientId: leadService
+      clientSecret: password
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
