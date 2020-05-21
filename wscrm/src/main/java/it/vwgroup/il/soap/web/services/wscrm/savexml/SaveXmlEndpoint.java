@@ -47,7 +47,7 @@ public class SaveXmlEndpoint {
             String jsonPrettyPrintString = xmlJSONObj.toString(4);
 
             RestTemplate restTemplate = new RestTemplate();
-            String resourceUrl = "http://192.168.1.102:8899/sendKafka";//?message=" + jsonPrettyPrintString;
+            String resourceUrl = "http://192.168.1.102:8899/sendLead";//?message=" + jsonPrettyPrintString;
 
             HttpEntity<String> httpRequest = new HttpEntity<>(jsonPrettyPrintString);
             Boolean foo = restTemplate.postForObject(resourceUrl, httpRequest, Boolean.class);

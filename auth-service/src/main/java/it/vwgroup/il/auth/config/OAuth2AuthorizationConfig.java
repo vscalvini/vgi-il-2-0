@@ -48,7 +48,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .scopes("ui")
                 .and()
                 .withClient("leadService")
-                .secret(env.getProperty("LEAD_SERVICE_PASSWORD"))
+                .secret("password")
                 .authorizedGrantTypes("client_credentials", "refresh_token")
                 .scopes("server");
         // @formatter:on
