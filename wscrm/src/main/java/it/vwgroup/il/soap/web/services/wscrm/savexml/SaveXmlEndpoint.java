@@ -14,6 +14,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.http.HttpEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -47,10 +49,12 @@ public class SaveXmlEndpoint {
             String jsonPrettyPrintString = xmlJSONObj.toString(4);
 
             RestTemplate restTemplate = new RestTemplate();
-            String resourceUrl = "http://192.168.1.102:8899/sendLead";//?message=" + jsonPrettyPrintString;
+            String resourceUrl = "http://192.168.1.102:8899/sendLead";
+            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+            headers.add("Authorization", "Bearer 7bba003e-1947-42c8-b0fd-199dad4bd277");
 
-            HttpEntity<String> httpRequest = new HttpEntity<>(jsonPrettyPrintString);
-            Boolean foo = restTemplate.postForObject(resourceUrl, httpRequest, Boolean.class);
+            HttpEntity<String> httpRequest = new HttpEntity<>(jsonPrettyPrintString, headers);
+            restTemplate.postForObject(resourceUrl, httpRequest, Boolean.class);
 
             response.setSaveXmlResult(jsonPrettyPrintString);
 	    } catch (SAXException | IOException e) {

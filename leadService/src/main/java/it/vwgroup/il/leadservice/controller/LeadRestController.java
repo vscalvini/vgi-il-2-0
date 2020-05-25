@@ -27,4 +27,11 @@ public class LeadRestController {
 
         return true;
     }
+
+    @RequestMapping(value = "/prova", method = RequestMethod.POST)
+    public void sendLead() {
+       System.out.println("ciao");
+	   leadService.sendLead(System.currentTimeMillis() + ": " + "ciao");
+
+    }
 }
