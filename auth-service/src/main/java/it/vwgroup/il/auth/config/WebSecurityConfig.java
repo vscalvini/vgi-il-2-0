@@ -11,9 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import it.vwgroup.il.auth.service.security.MongoUserDetailsService;
 
-/**
- * @author cdov
- */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
