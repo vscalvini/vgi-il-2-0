@@ -1,6 +1,5 @@
 package it.vwgroup.il.leadservice.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,9 +16,6 @@ public class LeadRestController {
         this.leadService = leadService;
     }
 
-//    @PostMapping("/sendLead")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-    @PreAuthorize("#oauth2.hasScope('server')")
     @RequestMapping(value = "/sendLead", method = RequestMethod.POST)
     public Boolean sendLead(@RequestBody String message) {
         System.out.println(message);
