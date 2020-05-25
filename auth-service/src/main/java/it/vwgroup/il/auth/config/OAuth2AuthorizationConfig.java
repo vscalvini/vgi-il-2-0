@@ -16,9 +16,6 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 import it.vwgroup.il.auth.service.security.MongoUserDetailsService;
 
-/**
- * @author cdov
- */
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
