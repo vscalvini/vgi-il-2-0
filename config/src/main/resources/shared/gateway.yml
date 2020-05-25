@@ -22,7 +22,7 @@ zuul:
         url: http://auth-service:5000
         stripPrefix: false
         sensitiveHeaders:
-
+      
     account-service:
         path: /accounts/**
         serviceId: account-service
@@ -38,6 +38,12 @@ zuul:
     notification-service:
         path: /notifications/**
         serviceId: notification-service
+        stripPrefix: false
+        sensitiveHeaders:
+        
+    lead-service:
+        path: /lead/**
+        url: http://lead-service:8899
         stripPrefix: false
         sensitiveHeaders:
 
