@@ -3,7 +3,7 @@ spring:
     mongodb:
       host: auth-mongodb
       username: user
-      password: password
+      password: ${MONGODB_PASSWORD}
       database: vgi_il
       port: 27017
 
