@@ -1,6 +1,6 @@
 **Progetto VGI-IL 2.0**
 
-[./media/image1.png](./media/image1.png)
+<img src="/imgs/vgi-il_1.png" alt="VGI-IL-2_0 Infrastruttura"/>
 ========================================
 
 Config service
@@ -180,6 +180,8 @@ Progetti
 
 La figura seguente riporta tutti i progetti attualmente in sviluppo e rilasciati
 sul repository GIT VGI-IL.
+
+<img src="/imgs/vgi-il_2.png" alt="VGI-IL-2_0 Progetto VGI-IL-2_0"/>
 
 Oltre a quelli infrastrutturali sopra elencati, sono presenti anche i progetti
 relativi alla wave0 della soluzione VGI-IL2.0, ovvero:
