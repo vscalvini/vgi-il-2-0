@@ -4,9 +4,9 @@ Il presente progetto contiene i moduli infrastrutturali che rappresentano i
 servizi di base per l’Integration Layer 2.0 di Volkswagen Italia. Tutti i moduli
 presenti si basano sui tools e sulle librerie messa a disposizione dal framework
 Spring Cloud. Ogni componente viene implementato come singola applicazione java
-Spring Boot, eseguibile in modo indipendente dale altre.
+Spring Boot, eseguibile in modo indipendente dalle altre.
 
-**Progetto VGI-IL 2.0**
+![VGI-IL](./imgs/vgi-il_1.png)
 
 Config service
 ==============
