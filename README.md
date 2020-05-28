@@ -198,6 +198,8 @@ Progetti
 La figura seguente riporta tutti i progetti attualmente in sviluppo e rilasciati
 sul repository GIT VGI-IL.
 
+![VGI-IL](./imgs/vgi-il_2.png)
+
 Ogni applicazione è costituita da un progetto maven (pom.xml) con la possibilità
 di lanciare test automatici in fase di build degli artefatti.
 
