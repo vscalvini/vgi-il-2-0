@@ -2,7 +2,6 @@ FROM mongo:3
 MAINTAINER Christian Novelli
 
 ADD init.sh /init.sh
-ADD ./dump /
 
 RUN \
  chmod +x /init.sh && \

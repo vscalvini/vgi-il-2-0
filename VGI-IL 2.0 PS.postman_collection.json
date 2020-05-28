@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "3b5128c9-55f3-49ca-a80e-4ec052af079e",
+		"name": "VGI-IL 2.0 PS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth-service TOKEN",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "leadService",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://192.168.1.102:5000/uaa/oauth/token",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"102"
+					],
+					"port": "5000",
+					"path": [
+						"uaa",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currentAccount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "f95590d0-444f-447e-a874-a0bd1601bb0c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/uaa/users/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"uaa",
+						"users",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendLead",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7bba003e-1947-42c8-b0fd-199dad4bd277",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "message",
+							"value": "prova",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.102:8899/sendLead",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"102"
+					],
+					"port": "8899",
+					"path": [
+						"sendLead"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test funzionamento LeadService",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7bba003e-1947-42c8-b0fd-199dad4bd277",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.102:8899/prova",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"102"
+					],
+					"port": "8899",
+					"path": [
+						"prova"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
